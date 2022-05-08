@@ -1,0 +1,110 @@
+canvas 
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* This is a selector that identifies the HTML document
+   itself and the behaviour of :root is known with respect 
+   to that document. Another way of saying this is that root 
+   represents the HTML element with the highest "authority"
+   which is the <html></html> tag in the index.html document. 
+   So, instead of adding more lines for each block of text to 
+   modify its contents such as the font, the :root can be used
+   to change the whole documents contents. */
+:root 
+{
+  --dark-bg: rgba(15, 15, 15, 0.95);
+  --spacing: 350px;
+
+  /*This takes care of the font for ALL the 
+    body text*/
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 400;/*Also known as thickness of the text*/
+  font-style: normal;/*Can also be italic or oblique*/
+}
+
+
+main 
+{
+  width: 100;
+  color: white;
+  position: absolute;
+  width: 100%;
+  margin: 0px auto;
+  padding: 120px 0px;
+  
+  /*Display a grid for later use*/
+  display: grid;
+
+  /*This line of code will create a total of 
+    12 columns to organize the blocks of text*/
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/*Takes care of the thickness
+  and font style for all the headers 
+  and the blockquotes*/
+h1, h2, h3, blockquote 
+{
+  font-weight: 700;
+  font-style: normal;
+}
+
+canvas 
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+  header 
+  {
+    background: var(--dark-bg);
+
+    /*Start at column 2 from the given
+      12 columns, and cover the rest of the 
+      5 columns to the right*/
+    grid-column: 2 / span 5;
+
+    /*The "rem" here is used to compute the size 
+      of the font instead of guess-and-checking desirable
+      sizes. It is also dependant on the parent elements, and
+      acts as a scalable ratio*/
+    font-size: 2.5rem;
+    padding: 2rem;
+    margin-bottom: var(--spacing);
+  }
+
+  section 
+  {
+    /*Start at column 2, and cover 
+      8 more columns to the right. However
+      it does not actually end at the 8th column, but
+      at the 7th column. In order to end at the 8th column,
+      grid-column: 2/span 7 can be used.*/
+    grid-column: 2 / 8;
+    padding: 1rem;
+    background: var(--dark-bg);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing);
+  }
+
+  blockquote 
+  {
+    margin: 0;
+    padding: 0;
+    grid-column: 2 / 10;
+    margin-bottom: var(--spacing);
+  }
+
+  blockquote p 
+  {
+    color: black;
+    background-color: white;
+    font-size: 4rem;
+    display: inline;
+    line-height: 1;
+  }
